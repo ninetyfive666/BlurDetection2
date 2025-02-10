@@ -26,7 +26,7 @@ def parse_args():
 
 
 def find_images(image_paths, img_extensions=['.jpg', '.png', '.jpeg']):
-    img_extensions = set(img_extensions + [i.upper() for i in img_extensions])  # Use a set to avoid duplicates
+    img_extensions = set(img_extensions + [i.upper() for i in img_extensions])
 
     for path in image_paths:
         path = pathlib.Path(path)
@@ -38,7 +38,7 @@ def find_images(image_paths, img_extensions=['.jpg', '.png', '.jpeg']):
             yield path
 
         elif path.is_dir():
-            yield from (p for p in path.rglob('*') if p.suffix in img_extensions)  # Scan once, then filter
+            yield from (p for p in path.rglob('*') if p.suffix in img_extensions) 
 
 
 
